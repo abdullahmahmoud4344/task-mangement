@@ -1,0 +1,29 @@
+.modal-dark .modal-content {
+  background-color: #000;
+  color: #fff;
+}
+
+.modal-dark .modal-header {
+  border-bottom: 1px solid #444;
+}
+
+.modal-dark .form-control {
+  background-color: #555;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+.modal-dark .btn-secondary {
+  background-color: #555;
+  border-color: #666;
+}
+
+.modal-dark .btn-primary {
+  background-color: #007bff;
+  border-color: #0069d9;
+}
+
+.modal-dark .btn-primary:disabled {
+  background-color: #444;
+  border-color: #666;
+}
