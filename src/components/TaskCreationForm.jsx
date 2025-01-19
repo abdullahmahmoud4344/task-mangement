@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useDateValidation from "../hooks/useDateValidation";
 import { createTask } from "../store/taskSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BASE_END_POINT } from "../constants";
 
 const TaskCreationForm = () => {
@@ -14,6 +14,7 @@ const TaskCreationForm = () => {
     priority: "Low",
     status: "Pending",
   });
+  const currentMode = useSelector((state) => state.theme.mode);
 
   const dispatch = useDispatch();
 
@@ -53,9 +54,14 @@ const TaskCreationForm = () => {
   };
 
   return (
-    <div className="container py-4">
+    <div
+      className={`container py-4 ${currentMode === "dark" ? "text-white" : ""}`}
+    >
       <h1 className="text-center mb-4">Create Task</h1>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className={`p-3 ${currentMode === "dark" ? "bg-dark text-light" : ""}`}
+      >
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
             Title
@@ -135,7 +141,12 @@ const TaskCreationForm = () => {
           </select>
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className={`btn ${
+            currentMode === "dark" ? "btn btn-secondary" : "btn btn-primary"
+          }`}
+        >
           Create Task
         </button>
       </form>
